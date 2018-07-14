@@ -15,8 +15,7 @@ module.exports = {
   | }
   */
   csp: {
-    directives: {
-    },
+    directives: {},
     reportOnly: false,
     setAllHeaders: false,
     disableAndroid: true
@@ -81,7 +80,7 @@ module.exports = {
   |
   */
   csrf: {
-    enable: true,
+    enable: false,
     methods: ['POST', 'PUT', 'DELETE'],
     filterUris: [],
     compareHostAndOrigin: true
