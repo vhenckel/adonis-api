@@ -29,6 +29,20 @@ class PostController {
 			data
 		})
 	}
+
+	* show(req, res) {
+		const post = yield this.Post.find(req.param('id'))
+		if (post) {
+			res.json({
+				post
+			})
+		}
+		res.json({
+			post: {}
+		})
+		return
+	}
+
 }
 
 module.exports = PostController
