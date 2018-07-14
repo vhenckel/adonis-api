@@ -22,5 +22,3 @@ Route.on('/').render('welcome')
 Route.post('/posts', 'PostController.create')
 
 Route.get('/posts', 'PostController.index')
-
-Route.get('/json', 'JsonController.index')
