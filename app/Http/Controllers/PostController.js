@@ -56,6 +56,19 @@ class PostController {
 		})
 	}
 
+	* destroy(req, res) {
+		const post = yield this.Post.find(req.param('id'))
+		if (post) {
+			yield post.delete()
+			res.noContent()
+
+		}
+		res.json({
+			post
+		})
+		return
+	}
+
 }
 
 module.exports = PostController
