@@ -19,11 +19,16 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-Route.post('/posts', 'PostController.create')
-Route.get('/posts', 'PostController.index')
-Route.get('/posts/:id', 'PostController.show')
-Route.put('/posts/:id', 'PostController.update')
-Route.delete('posts/:id', 'PostController.destroy')
+Route.group('v1', function() {
+		Route.post('/posts', 'PostController.create')
+		Route.get('/posts', 'PostController.index')
+		Route.get('/posts/:id', 'PostController.show')
+		Route.put('/posts/:id', 'PostController.update')
+		Route.delete('posts/:id', 'PostController.destroy')
+	})
+	.prefix('api/v1')
+
+
 Route.post('/auth/:id', 'UserController.auth')
 Route.get('/users', 'UserController.index')
 Route.post('/users', 'UserController.create')
