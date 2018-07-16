@@ -47,7 +47,7 @@ class PostController {
 
 	* update(req, res) {
 		const post = yield this.Post.find(req.param('id'))
-		const data = request.only('title', 'text')
+		const data = req.only('title', 'text')
 
 		post.fill(data)
 		yield post.save()
