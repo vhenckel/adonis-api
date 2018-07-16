@@ -32,6 +32,8 @@ class PostController {
 
 	* show(req, res) {
 		const post = yield this.Post.find(req.param('id'))
+		//const post = yield this.Post.query().where('id', req.param('id'))
+
 		if (post) {
 			res.json({
 				post
@@ -41,6 +43,17 @@ class PostController {
 			post: {}
 		})
 		return
+	}
+
+	* update(req, res) {
+		const post = yield this.Post.find(req.param('id'))
+		const data = request.only('title', 'text')
+
+		post.fill(data)
+		yield post.save()
+		res.json({
+			post
+		})
 	}
 
 }
